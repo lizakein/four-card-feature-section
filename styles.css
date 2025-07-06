@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+    --primary-red: hsl(0, 78%, 62%);
+    --primary-blue: hsl(212, 86%, 64%);
+    --primary-cyan: hsl(180, 62%, 55%);
+    --primary-orange: hsl(34, 97%, 64%);
+
+    --background-color: hsl(0, 0%, 100%);
+    --text-color: hsl(234, 12%, 34%);
+    --paragraph-color: hsl(212, 6%, 44%);
+ 
+    --font-family: "Poppins", sans-serif;
+    --font-body-size: 15px;
+    --font-weight-light: 200;
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    width: 100%;
+    margin-block-end: 3rem;
+    font-family: var(--font-family);
+    font-size: var(--font-body-size);
+    font-weight: var(--font-weight-normal);
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.header {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.header__title {
+    margin-block-end: 1rem;
+    font-weight: var(--font-weight-light);
+    font-size: clamp(1.5rem, 5vw, 2.27rem);
+    letter-spacing: 0.2px;
+}
+
+.header__subtitle {
+    display: block;
+    font-weight: var(--font-weight-bold);
+}
+
+.header__description { 
+    max-width: 28rem;   
+    margin-inline: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.1rem;
+    padding: 0 1.9rem;
+    max-width: 25rem;
+    margin-inline: auto;
+}
+
+.card__item {
+    position: relative;
+    width: 100%;
+    max-width: 25rem;
+    min-height: 15.5rem;
+    padding: 1.8rem 2rem 1.7rem;
+    border-radius: 6px; 
+    box-shadow: 0 10px 16px 1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease,  box-shadow 0.3s ease;
+}
+
+.card__item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card__title {
+    margin-block-end: 0.3rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.6px;
+}
+
+.card__description {
+    margin-block-end: 3rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.6px;
+    line-height: 1.7;
+    color: var(--paragraph-color);
+}
+
+.card__icon {
+    position: absolute;
+    right: 2rem;
+    bottom: 3rem;
+    width: 4rem;   
+}
+
+.card__item:nth-child(1) {
+    border-top: 4px solid var(--primary-cyan);
+}
+
+.card__item:nth-child(2) {
+    border-top: 4px solid var(--primary-red);
+}
+
+.card__item:nth-child(3) {
+    border-top: 4px solid var(--primary-orange);
+}
+
+.card__item:nth-child(4) {
+    border-top: 4px solid var(--primary-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card__item {
+        transition: none;
+    }
+}
+
+@media (min-width: 48rem) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        ". build ."
+        "sup build calc"
+        "sup karma calc"
+        ". karma .";
+        max-width: 73rem;
+        margin: 0 auto;
+    }
+
+    .card__item:nth-child(1) {
+        grid-area: sup;
+    }
+
+    .card__item:nth-child(2) {
+        grid-area: build;
+    }
+
+    .card__item:nth-child(3) {
+        grid-area: karma;
+    }
+
+    .card__item:nth-child(4) {
+        grid-area: calc;
+    }
+
+    .header {
+        margin-block-start: 4.9rem;
+        margin-block-end: 2.9rem;
+        line-height: 1.4;
+    }
+
+    .header__description {
+        max-width: 32rem;
+        margin: 0 auto;
+    }
+}
